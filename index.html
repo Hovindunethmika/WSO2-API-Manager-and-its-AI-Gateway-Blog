@@ -1,0 +1,201 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --ink:#1F3A52;--muted:#5A6C7D;--faint:#8B95A6;--rule:#D4DEE7;
+    --accent:#0066CC;--accent-light:#E6F0FF;
+    --tag-bg:#F0F4F8;--tag-fg:#1F3A52;
+    --callout:#F7FAFC;--callout-border:#B8CEE0;
+    --code-bg:#EEF2F7;--bg:#FFFFFF;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ink:#E8EEF5;--muted:#A3B3C3;--faint:#7A8A9A;--rule:#2C3E52;
+      --accent:#5BA3FF;--accent-light:#0F1B2E;
+      --tag-bg:#1B2638;--tag-fg:#A3B3C3;
+      --callout:#141F2D;--callout-border:#2C4563;
+      --code-bg:#1E2A3D;--bg:#0F1419;
+    }
+  }
+  body{font-family:'Source Serif 4',Georgia,serif;color:var(--ink);background-color:var(--bg);max-width:720px;margin:0 auto;padding:2rem 1.5rem 4rem}
+  .kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+  h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,5vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:1rem;color:var(--ink)}
+  .deck{font-size:1.15rem;font-style:italic;color:var(--muted);line-height:1.6;margin-bottom:1.5rem;font-weight:300}
+  .byline{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--faint);letter-spacing:.04em;padding-bottom:1.25rem;border-bottom:2px solid var(--ink);margin-bottom:2rem}
+  .byline-dot{width:3px;height:3px;border-radius:50%;background:var(--faint)}
+  hr.section{border:none;border-top:1px solid var(--rule);margin:2rem 0}
+  p{font-size:1rem;line-height:1.8;margin-bottom:1.25rem;color:var(--ink)}
+  h2{font-family:'Playfair Display',Georgia,serif;font-size:1.55rem;font-weight:700;margin:2.5rem 0 .75rem;color:var(--ink)}
+  h3{font-family:'Source Serif 4',Georgia,serif;font-size:1.05rem;font-weight:400;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin:2rem 0 .5rem}
+  .pullquote{border-left:3px solid var(--accent);margin:2.25rem 0;padding:.5rem 0 .5rem 1.5rem}
+  .pullquote p{font-family:'Playfair Display',serif;font-size:1.35rem;font-style:italic;line-height:1.5;color:var(--ink);margin:0}
+  .callout{background:var(--callout);border-left:3px solid var(--callout-border);border-radius:0 6px 6px 0;padding:1rem 1.25rem;margin:2rem 0}
+  .callout-title{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:.5rem}
+  .callout p{margin:0;font-size:.9rem;line-height:1.7;color:var(--muted)}
+  .tag-row{display:flex;flex-wrap:wrap;gap:6px;margin:2rem 0 2.5rem}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;background:var(--tag-bg);color:var(--tag-fg);padding:3px 10px;border-radius:3px}
+  .hero-rule{width:48px;height:3px;background:var(--accent);margin-bottom:1.5rem}
+  code{font-family:'JetBrains Mono',monospace;font-size:.82rem;background:var(--code-bg);padding:2px 6px;border-radius:3px;color:var(--accent)}
+  .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:12px;margin:1.5rem 0}
+  .feature-card{background:var(--callout);border:0.5px solid var(--callout-border);border-radius:8px;padding:.9rem 1rem}
+  .feature-card .icon{font-size:16px;margin-bottom:.4rem;color:var(--accent)}
+  .feature-card .label{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin-bottom:.3rem}
+  .feature-card .desc{font-size:.82rem;line-height:1.6;color:var(--muted)}
+  .flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:1.5rem 0;font-family:'JetBrains Mono',monospace;font-size:11px}
+  .flow-box{background:var(--code-bg);border:0.5px solid var(--rule);border-radius:5px;padding:4px 10px;color:var(--ink)}
+  .flow-arrow{color:var(--accent);font-weight:500}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:2rem 0}
+  .stat{background:var(--accent-light);border-radius:8px;padding:.9rem 1rem;text-align:center}
+  .stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--accent);display:block}
+  .stat-label{font-size:.72rem;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .footer-rule{border-top:2px solid var(--ink);margin-top:3rem;padding-top:1rem;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--faint);letter-spacing:.06em}
+</style>
+
+<div class="hero-rule"></div>
+<div class="kicker">WSO2 API Manager &nbsp;·&nbsp; Deep Dive</div>
+<h1>Your APIs Are Ready for AI. Is Your Gateway?</h1>
+<p class="deck">How WSO2 API Manager's AI Gateway is solving the hardest new problem in enterprise software — governing the moment your systems talk to machines, not just humans.</p>
+<div class="byline">
+  <span>WSO2 Blog</span>
+  <div class="byline-dot"></div>
+  <span>April 2026</span>
+  <div class="byline-dot"></div>
+  <span>8 min read</span>
+</div>
+
+<p>Every enterprise has APIs. They're the nervous system of modern software — quietly routing requests between payment processors, CRMs, inventory systems, and data warehouses, thousands of times a second. For two decades, API management was fundamentally about one thing: getting data from point A to point B reliably, securely, and fast.</p>
+
+<p>Then AI agents arrived. And suddenly, the thing making requests to your APIs isn't a mobile app with a predictable user session. It's an autonomous system that can issue thousands of calls in seconds, infer context it was never explicitly given, chain together actions you didn't intend to be combined — and do all of it on your behalf, with your credentials, at scale.</p>
+
+<p>That changes everything about how you need to manage your APIs. WSO2 has been paying close attention.</p>
+
+<hr class="section">
+<h2>The problem no one was ready for</h2>
+
+<p>Think about the traditional API security model. You issue a key to a developer, they embed it in their app, and their app calls your endpoint. The key identifies the app; rate limiting controls the volume; OAuth scopes constrain the permissions. The system works because the caller is ultimately a human-authored request pattern — predictable, bounded, and auditable.</p>
+
+<p>AI agents break every assumption in that model.</p>
+
+<div class="callout">
+  <div class="callout-title">The core challenge</div>
+  <p>An AI agent doesn't have a "session." It can be invoked by a user, by a scheduler, or by another agent. It can infer what permissions it probably has and try to expand them. It can loop. It can call your endpoints in an order that individually seems fine but collectively causes a side effect you never anticipated.</p>
+</div>
+
+<p>The Model Context Protocol (MCP) has made this even more acute. MCP lets AI systems — like Claude, GPT-4, or a custom LLM — call external tools and data sources as part of their reasoning process. In practice, that means your internal APIs can now be "tools" that an AI invokes mid-thought, mid-conversation, without a human in the loop for each call.</p>
+
+<p>Enterprises need to expose those capabilities. Customers want AI assistants that can actually do things — check an order status, initiate a refund, generate a report. But exposing your APIs as MCP tools without proper governance is like handing your entire backend to a very enthusiastic, very literal intern with root access.</p>
+
+<hr class="section">
+<h2>Enter the AI Gateway</h2>
+
+<p>WSO2 API Manager 4.6.0, released in November 2025, introduced what may be the most important feature in the product's history: a production-grade AI Gateway with native MCP proxy support.</p>
+
+<div class="flow">
+  <div class="flow-box">AI Agent</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-box">MCP Tool Call</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-box">AI Gateway</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-box">Guardrails + Auth</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-box">Your API</div>
+</div>
+
+<p>The idea is straightforward but the execution is nuanced: instead of letting AI agents hit your APIs directly, you route them through a specialized gateway layer that understands the unique risk profile of agentic traffic. That layer can enforce policies, inspect inputs and outputs, throttle abuse, log everything, and block calls that look malicious — before any of it reaches your actual backend.</p>
+
+<div class="pullquote">
+  <p>"Businesses are now building AI agents which require exposing their APIs as MCP tools. These tools need to be secured, controlled, and governed appropriately."</p>
+</div>
+
+<p>The MCP proxy feature lets teams register their existing APIs as MCP-compatible tools inside WSO2 API Manager's portal, apply the same governance policies they already use for conventional API traffic, and then expose a single secure MCP endpoint that AI clients can discover and call. From the AI agent's perspective, it's just using a tool. From the enterprise's perspective, every call is logged, policy-checked, and rate-limited just like any other API traffic.</p>
+
+<hr class="section">
+<h3>What governance actually looks like</h3>
+
+<p>Here's where WSO2's implementation gets interesting. The product doesn't just add a proxy layer — it extends its AI Gateway with a suite of guardrails designed specifically for LLM traffic patterns.</p>
+
+<div class="feature-grid">
+  <div class="feature-card">
+    <div class="label">Input scanning</div>
+    <div class="desc">Prompt injection attempts, PII leakage, and adversarial inputs are intercepted before they reach your model or your APIs.</div>
+  </div>
+  <div class="feature-card">
+    <div class="label">Output filtering</div>
+    <div class="desc">Responses from LLMs are checked for hallucinations, brand-unsafe content, and compliance violations before they reach end users.</div>
+  </div>
+  <div class="feature-card">
+    <div class="label">Multi-vendor LLM routing</div>
+    <div class="desc">Native support for OpenAI, Azure, Anthropic, and others — route to any provider through a single managed interface with consistent policies.</div>
+  </div>
+</div>
+
+<p>The input/output guardrails are particularly important for enterprises with compliance obligations. Healthcare organizations can block any response that includes what looks like a medication dosage in an unsecured context. Financial firms can flag outputs that resemble investment advice without proper disclaimers. These rules live in the gateway, not in the model — which means they apply regardless of which LLM you're using or who built the agent.</p>
+
+<hr class="section">
+<h2>The LLM proxy: one interface, every provider</h2>
+
+<p>Alongside the MCP work, the 4.6.0 release expanded WSO2's LLM proxy capabilities with out-of-the-box native integrations for all major AI service providers. That might sound like table stakes, but it solves a genuinely painful operational problem.</p>
+
+<p>Most enterprise AI strategies are multi-vendor. You might use GPT-4 for customer-facing chat, Claude for internal document summarization, and a fine-tuned open-source model for a specialized task. Without a unified gateway, each of those integrations means separate authentication management, separate logging, separate rate limiting, separate incident response. When something goes wrong — and with AI systems, something always eventually goes wrong — you're debugging across three different providers' dashboards with three different log formats.</p>
+
+<div class="stat-row">
+  <div class="stat">
+    <span class="stat-num">1</span>
+    <span class="stat-label">Unified interface</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">∞</span>
+    <span class="stat-label">LLM providers</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">0</span>
+    <span class="stat-label">Policy rewrites</span>
+  </div>
+</div>
+
+<p>The WSO2 LLM proxy collapses all of that into a single interface. Teams define their governance policies once — token budgets, allowed models, PII handling rules — and those policies apply uniformly across every provider. Switching from one model to another, or adding a new vendor, is a configuration change, not a new integration project.</p>
+
+<hr class="section">
+<h2>Scale, and what it takes to maintain it</h2>
+
+<p>None of this governance tooling matters if the gateway can't handle the traffic. AI workloads are spiky in ways that conventional API traffic isn't. A single user conversation can burst to dozens of LLM calls in seconds. A batch processing job can saturate an endpoint that typically sees modest load. Agentic workflows that chain multiple tools can produce cascading call patterns that look, to a naive rate limiter, like a DDoS attack.</p>
+
+<p>WSO2 addressed this with a new centralized, fault-tolerant throttling architecture for distributed gateway clusters. Rather than each gateway node independently tracking its own rate limit counters — which causes enforcement to be inconsistent across a cluster — the new model uses a centralized counter that all nodes report to. The result is that rate limits are enforced accurately even as horizontal scaling adds nodes, and the system degrades gracefully if the counter service itself becomes unavailable.</p>
+
+<div class="callout">
+  <div class="callout-title">Why this matters for AI workloads</div>
+  <p>A token-per-minute limit for an LLM API needs to be enforced across your entire cluster, not per-node. If you have four gateway nodes and each enforces the limit independently, you'll blow through your LLM provider's quota four times faster than you think. Centralized throttling closes that gap.</p>
+</div>
+
+<hr class="section">
+<h2>Turning APIs into a business, not just infrastructure</h2>
+
+<p>One of the more unexpected additions in the 4.6.0 release came via WSO2's acquisition of Moesif: deep API analytics and usage-based monetization, embedded directly into the API management lifecycle.</p>
+
+<p>For teams building AI-powered products — think an AI assistant that customers pay for by the query, or a data enrichment API billed by the record — this matters a great deal. Historically, operationalizing that kind of billing required either a custom metering system bolted onto your API gateway, or a separate analytics platform that you'd have to integrate and keep in sync.</p>
+
+<p>With the Moesif integration, API owners can define usage-based pricing tiers, track consumption in real time, and automate billing workflows from inside the same platform they use to manage security and governance. The API gateway stops being a pure cost center and starts being a revenue surface.</p>
+
+<hr class="section">
+<h2>What this means for teams building today</h2>
+
+<p>If you're evaluating API management platforms right now, the AI Gateway capabilities in WSO2 API Manager 4.6.0 represent something genuinely new in the market: a production-ready approach to governing agentic AI traffic, built by a team that understands enterprise API management at scale.</p>
+
+<p>The MCP proxy is the most forward-looking piece. As AI agents become a standard channel — the way mobile was a decade ago — the organizations that built proper governance infrastructure early will have a significant advantage. They'll be able to expose capabilities to AI systems safely, iterate quickly, and audit everything when regulators inevitably come asking.</p>
+
+<p>The teams that treat AI agent access as "just another API integration" will find themselves retrofitting governance onto a system that wasn't designed for it. That's a painful and expensive lesson that API management has already taught the industry once.</p>
+
+<p>Better not to repeat it.</p>
+
+<hr class="section">
+<div class="tag-row">
+  <div class="tag">WSO2 API Manager</div>
+  <div class="tag">AI Gateway</div>
+  <div class="tag">MCP</div>
+  <div class="tag">API Governance</div>
+  <div class="tag">Agentic AI</div>
+  <div class="tag">LLM Ops</div>
+  <div class="tag">Enterprise Integration</div>
+</div>
+<div class="footer-rule">WSO2 Blog &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; api-manager &nbsp;·&nbsp; ai-gateway</div>
